@@ -1,13 +1,16 @@
 import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
-import { Inter } from '@next/font/google'
+import { Oswald } from '@next/font/google'
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
+const oswald = Oswald({
+  subsets: ['latin'],
+  variable: '--font-oswald',
+})
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <main
-      className={`${inter.variable} font-sans container h-screen flex flex-col mx-auto py-16 px-4`}
+      className={`${oswald.variable} font-sans font-extralight container h-screen flex flex-col mx-auto py-16 px-4`}
     >
       <Component {...pageProps} />
     </main>

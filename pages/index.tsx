@@ -30,7 +30,7 @@ export default function Home() {
               <Link
                 key={link.name}
                 href={link.path}
-                className="block uppercase font-bold"
+                className="block uppercase font-semibold"
               >
                 {link.name}
               </Link>
@@ -39,7 +39,7 @@ export default function Home() {
 
           <ul className="flex flex-col items-end pr-4 mt-8 space-y-8">
             <li>
-              <div className="font-bold">0xradical</div>
+              <div className="font-semibold">0xradical</div>
               <ul className="flex space-x-1 justify-end">
                 <li>
                   <Link
@@ -96,13 +96,13 @@ export default function Home() {
               </ul>
             </li>
             <li className="flex items-end flex-col">
-              <div className="font-bold">location</div>
+              <div className="font-semibold">location</div>
               <div className="sidebar-info-list-item-value">
                 Florianópolis, Brazil
               </div>
             </li>
             <li className="flex items-end flex-col">
-              <div className="font-bold">contact</div>
+              <div className="font-semibold">contact</div>
               <div className="sidebar-info-list-item-value">contact(at)</div>
               <div className="sidebar-info-list-item-value">
                 0xradical(dot)com
