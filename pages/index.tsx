@@ -2,6 +2,35 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
 import links from '@/data/links.json'
+import social from '@/data/social.json'
+
+function SocialMedia() {
+  return (
+    <>
+      {['github', 'linkedin', 'twitter'].map((value) => {
+        const platform = value as keyof typeof social
+
+        return (
+          <li key={platform}>
+            <Link
+              target="_blank"
+              href={social[platform].url}
+              rel="noopener noreferer"
+              aria-label={`my ${platform}`}
+            >
+              <Image
+                src={`./${platform}.svg`}
+                width="16"
+                height="16"
+                alt={`${platform}'s icon`}
+              />
+            </Link>
+          </li>
+        )
+      })}
+    </>
+  )
+}
 
 export default function Home() {
   return (
@@ -25,7 +54,7 @@ export default function Home() {
       </header>
       <div className="grid grid-cols-12 gap-8 flex-1">
         <nav className="hidden md:block col-span-4">
-          <ul className="flex items-end flex-col space-y-4 pr-4">
+          <ul className="flex items-end flex-col space-y-2 pr-4">
             {links.map((link) => (
               <Link
                 key={link.name}
@@ -37,76 +66,19 @@ export default function Home() {
             ))}
           </ul>
 
-          <ul className="flex flex-col items-end pr-4 mt-8 space-y-8">
+          <ul className="flex flex-col items-end pr-4 mt-8 space-y-4">
             <li>
-              <div className="font-semibold">0xradical</div>
               <ul className="flex space-x-1 justify-end">
-                <li>
-                  <Link
-                    className="a-mr(0.25em)"
-                    target="_blank"
-                    href="https://github.com/0xradical"
-                    rel="noopener noreferer"
-                    aria-label="my github"
-                  >
-                    <Image
-                      src="./github.svg"
-                      className="sidebar-social"
-                      width="16"
-                      height="16"
-                      alt="Github's Icon"
-                    />
-                  </Link>
-                </li>
-
-                <li>
-                  <Link
-                    className="a-mr(0.25em)"
-                    target="_blank"
-                    href="https://twitter.com/0xradical"
-                    rel="noopener noreferer"
-                    aria-label="my twitter"
-                  >
-                    <Image
-                      src="./twitter.svg"
-                      className="sidebar-social"
-                      width="16"
-                      height="16"
-                      alt="Twitter's Icon"
-                    />
-                  </Link>
-                </li>
-
-                <li>
-                  <Link
-                    target="_blank"
-                    href="https://linkedin.com/in/thiagobrandam/"
-                    rel="noopener noreferer"
-                    aria-label="my linkedin"
-                  >
-                    <Image
-                      src="./linkedin.svg"
-                      className="sidebar-social"
-                      width="16"
-                      height="16"
-                      alt="Linkedin's Icon"
-                    />
-                  </Link>
-                </li>
+                <SocialMedia />
               </ul>
             </li>
             <li className="flex items-end flex-col">
               <div className="font-semibold">location</div>
-              <div className="sidebar-info-list-item-value">
-                Florianópolis, Brazil
-              </div>
+              <div>{social.location.url}</div>
             </li>
             <li className="flex items-end flex-col">
-              <div className="font-semibold">contact</div>
-              <div className="sidebar-info-list-item-value">contact(at)</div>
-              <div className="sidebar-info-list-item-value">
-                0xradical(dot)com
-              </div>
+              <div className="font-semibold">email</div>
+              <div>{social.email.url}</div>
             </li>
           </ul>
         </nav>
