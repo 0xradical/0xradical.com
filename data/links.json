@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Writing",
+    "path": "/"
+  },
+  {
+    "name": "Resume",
+    "path": "/resume"
+  },
+  {
+    "name": "Projects",
+    "path": "/projects"
+  },
+  {
+    "name": "Courses",
+    "path": "/courses"
+  },
+  {
+    "name": "Contact",
+    "path": "/contact"
+  },
+  {
+    "name": "Books",
+    "path": "/books"
+  }
+]

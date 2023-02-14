@@ -1,3 +1,6 @@
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const { fontFamily } = require('tailwindcss/defaultTheme')
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -11,8 +14,12 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['var(--font-inter)'],
+        sans: ['var(--font-inter)', ...fontFamily.sans],
       },
+    },
+    colors: {
+      radix: 'rgb(var(--color-radix) / <alpha-value>)', // What I use to write
+      surface: 'rgb(var(--color-surface) / <alpha-value>)', // Surface
     },
   },
   plugins: [require('@tailwindcss/typography')],
